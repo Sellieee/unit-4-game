@@ -16,3 +16,39 @@
 
 // Side Notes:
 // If User has not selected character and clicks attack - say "No enemy here"
+// When user is on the last enemy, "Enemies Available to Attack" seciton disappears
+
+$(document).ready(function () {
+    // Character creation - the higher the HP, the more counter attack they can tolerate
+
+    var characters = {
+        "Obi-Wan Kenobi": {
+            name: "Obi-Wan Kenobi",
+            healthPoints: 120,
+            attackPower: 11,
+            counter: 12,
+
+        }
+
+        "Luke Skywalker": {
+            name: "Luke Skywalker",
+            healthPoints: 100,
+            attackPower: 10,
+            counter: 6
+        }
+
+        "Darth Sidious": {
+            name: "Darth Sidious",
+            healthPoints: 150,
+            attackPower: 15,
+            counter: 21
+        }
+
+        "Darth Maul": {
+            name: "Darth Maul",
+            healthPoints: 180,
+            attackPower: 13,
+            counter: 30
+        }
+    }
+})
