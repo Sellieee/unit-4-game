@@ -24,7 +24,6 @@ $(document).ready(function () {
     var characters = {
         Obi: {
             name: "Obi-Wan Kenobi",
-            image: "assets/images/obi-wan-kenobi.jpg",
             healthPoints: 120,
             attackPower: 11,
             counter: 12,
@@ -32,7 +31,6 @@ $(document).ready(function () {
 
         Luke: {
             name: "Luke Skywalker",
-            image: "assets/images/luke-skywalker.jpg",
             healthPoints: 100,
             attackPower: 10,
             counter: 6
@@ -40,7 +38,6 @@ $(document).ready(function () {
 
         Sidious: {
             name: "Darth Sidious",
-            image: "assets/images/darth-sidious.jpg",
             healthPoints: 150,
             attackPower: 15,
             counter: 21
@@ -48,31 +45,59 @@ $(document).ready(function () {
 
         Maul: {
             name: "Darth Maul",
-            image: "assets/images/darth-maul.jpg",
             healthPoints: 180,
             attackPower: 13,
             counter: 30
         }
     }
+
+    // Variables:
+    var character;
+    var enemy;
+    var roundNumber = 1;
+    var enemiesKilled = 0;
+
+    // Selecting character
+    $("#character-image").click(function () {
+        if (character == "") {
+            console.log(this);
+            $(this).appendTo(".chosen-character");
+            character = $(this);
+            chosenCharacter = $(character).attr("value");
+        }
+        if (chosenCharacter == characters.Obi.name) {
+            HP = characters.Obi.healthPoints;
+            AP = characters.Obi.attackPower;
+            CAP = characters.Obi.counter;
+            name = characters.Obi.name;
+        } else if (chosenCharacter == characters.Luke) {
+            HP = characters.Luke.healthPoints;
+            AP = characters.Luke.attackPower;
+            CAP = characters.Luke.counter;
+            name = characters.Luke.name;
+        } else if (chosenCharacter == characters.Sidious) {
+            HP = characters.Sidious.healthPoints;
+            AP = characters.Sidious.attackPower;
+            CAP = characters.Sidious.counter;
+            name = characters.Sidious.name;
+        } else if (chosenCharacter == characters.Maul) {
+            HP = characters.Maul.healthPoints;
+            AP = characters.Maul.attackPower;
+            CAP = characters.Maul.counter;
+            name = characters.Maul.name;
+        }
+
+    })
+
+    // Base Attack Power
+    function baseAttack() {
+        baseAttack = attackPower;
+    }
+
+    // Attack button
+    $(".attack-button").click(function () {
+        if ($(".enemies").children().length == 0) {
+            $(".attack-note").html("Please select a character first.")
+        }
+    })
 })
-
-// Variables:
-var character;
-var enemy;
-var roundNumber = 1;
-var enemiesKilled = 0;
-
-// Inserting character images in #character-image
-$("#character-image").append("<img})
-
-        $(".choose-character").click(function () {
-                $("#chosen-character").fadeOut("slow", function () {
-
-                });
-
-                // Base Attack Power
-                function baseAttack() {
-                    baseAttack = attackPower;
-                }
-
-                // Attack button

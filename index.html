@@ -21,12 +21,31 @@
     <!-- Where the entire game is contained -->
     <div class="game-area container">
         <!-- Displays 4 characters available to be selected -->
-        <div class="choose-character">
-            <div class="row">
+        <div class="row">
+            <div id="choose-character">
                 <!-- Displays the images of the 4 characters -->
                 <div class="col-sm-12" id="character-image">
                     <h4>Select a character:</h4>
-
+                    <div class="col-sm-3 img1 float" id="obi" value="Obi">
+                        <p>Obi-Wan Kenobi</p>
+                        <img src="assets/images/obi-wan-kenobi.jpg" width="200px">
+                        <br>
+                    </div>
+                    <div class="col-sm-3 img2 float" id="luke" value="Luke">
+                        <p>Luke Skywalker</p>
+                        <img src="assets/images/luke-skywalker.jpg" width="200px">
+                        <br>
+                    </div>
+                    <div class="col-sm-3 img3 float" id="sidious" value="Sidious">
+                        <p>Darth Sidious</p>
+                        <img src="assets/images/darth-sidious.jpg" width="200px">
+                        <br>
+                    </div>
+                    <div class="col-sm-3 img4 float" id="maul" value="Maul">
+                        <p>Darth Maul</p>
+                        <img src="assets/images/darth-maul.jpg" width="200px">
+                        <br>
+                    </div>
                 </div>
                 <!-- Confirms chosen character -->
                 <div class="chosen-character">
@@ -35,16 +54,23 @@
         </div>
         <!-- Where selected character is displayed -->
         <div class="chosen-character-appears">
+            <p>Selected character:</p>
 
         </div>
         <!-- Where enemies appear (other 3 characters) -->
         <div class="enemies">
+            <div class="row">
+                <p>Enemies available to attack:</p>
+            </div>
             <!-- Fight section where 'Attack' button is located -->
             <div class="fight-section">
+                <p>Battlegrounds</p>
 
             </div>
             <!-- Create attack button -->
-            <div id="attack-button"></div>
+            <div id="attack-button">
+                <button>Attack</button>
+            </div>
             <!-- Defender area where selected enemy is displayed -->
             <div class="defender-area">
 
