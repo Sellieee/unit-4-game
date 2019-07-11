@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Star Wars RPG Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
@@ -17,12 +19,18 @@
         <h1>Star Wars RPG!</h1>
     </div>
     <!-- Where the entire game is contained -->
-    <div class="game-area">
+    <div class="game-area container">
         <!-- Displays 4 characters available to be selected -->
         <div class="choose-character">
-            <!-- Confirms chosen character -->
-            <div class="chosen-character">
+            <div class="row">
+                <!-- Displays the images of the 4 characters -->
+                <div class="col-sm-12" id="character-image">
+                    <h4>Select a character:</h4>
 
+                </div>
+                <!-- Confirms chosen character -->
+                <div class="chosen-character">
+                </div>
             </div>
         </div>
         <!-- Where selected character is displayed -->
@@ -35,6 +43,8 @@
             <div class="fight-section">
 
             </div>
+            <!-- Create attack button -->
+            <div id="attack-button"></div>
             <!-- Defender area where selected enemy is displayed -->
             <div class="defender-area">
 

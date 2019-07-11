@@ -19,36 +19,60 @@
 // When user is on the last enemy, "Enemies Available to Attack" seciton disappears
 
 $(document).ready(function () {
-    // Character creation - the higher the HP, the more counter attack they can tolerate
 
+    // Character creation - the higher the HP, the more counter attack they can tolerate
     var characters = {
-        "Obi-Wan Kenobi": {
+        Obi: {
             name: "Obi-Wan Kenobi",
+            image: "assets/images/obi-wan-kenobi.jpg",
             healthPoints: 120,
             attackPower: 11,
             counter: 12,
+        },
 
-        }
-
-        "Luke Skywalker": {
+        Luke: {
             name: "Luke Skywalker",
+            image: "assets/images/luke-skywalker.jpg",
             healthPoints: 100,
             attackPower: 10,
             counter: 6
-        }
+        },
 
-        "Darth Sidious": {
+        Sidious: {
             name: "Darth Sidious",
+            image: "assets/images/darth-sidious.jpg",
             healthPoints: 150,
             attackPower: 15,
             counter: 21
-        }
+        },
 
-        "Darth Maul": {
+        Maul: {
             name: "Darth Maul",
+            image: "assets/images/darth-maul.jpg",
             healthPoints: 180,
             attackPower: 13,
             counter: 30
         }
     }
 })
+
+// Variables:
+var character;
+var enemy;
+var roundNumber = 1;
+var enemiesKilled = 0;
+
+// Inserting character images in #character-image
+$("#character-image").append("<img})
+
+        $(".choose-character").click(function () {
+                $("#chosen-character").fadeOut("slow", function () {
+
+                });
+
+                // Base Attack Power
+                function baseAttack() {
+                    baseAttack = attackPower;
+                }
+
+                // Attack button
