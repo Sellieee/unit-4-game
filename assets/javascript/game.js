@@ -60,13 +60,6 @@ $(document).ready(function () {
     var chosenCharacter = {};
     var chosenEnemy = {};
 
-    // Attack button
-    $("#attack-button").click(function () {
-        if ($(".enemies").children().length == 0) {
-            $(".attack-note").html("Please select a character first.")
-        }
-    })
-
     // Selecting character
     $(".image").click(function () {
         if (character == "") {
@@ -89,10 +82,10 @@ $(document).ready(function () {
         }
     })
     // choose enemy to fight
-    $(".enemies").click(function () {
+    $(".enemies").children(".image").click(function () {
         if (character == "") {
             console.log(this);
-            $(this).appendTo("#selected-enemy");
+            $(this).appendTo(".defender-area");
             character = $(this);
             chosenEnemy = $(character).attr("value");
             var defender = characters[chosenEnemy];
@@ -104,35 +97,38 @@ $(document).ready(function () {
         }
     })
 
-
-    // Base attack
-    function baseAttack() {
-        baseAttack = chosenCharacter.attackPower
-    }
-    // Increasing AP after each attack
-    chosenCharacter.attackPower = function () {
-        this.attackPower += attackPower;
-    }
-    // if character successfully attacks
-    $(".attack-note").html("You attacked " + enemy + "for " + this.attackPower + " points.");
-
-    // Decreasing HP from counter attack
-    chosenCharacter.counter = function () {
-        this.healthPoints -= this.counter;
-        $(".attack-note").append(this.name + "counter attacked you for " + this.counter + " points.");
-    }
+    // Attack button
+    $("#attack-button").click(function () {
+        if ($(".enemies").children().length == 0) {
+            $(".attack-note").html("Please select a character first.")
+        } else {
+            defender.healthPoints -= attacker.attackPower && attacker.healthPoints -= defender.counter;
+            $(".attack-note").html("You attacked " + defender + "for " + attacker.attackPower + " damage.");
+            $(".attack-note").append(this.name + "counter attacked you for " + defender.counter + " damage.");
+        };
+    })
 
     // If character has won 
     function wins() {
-        if (chosenCharacter.length == 0 && chosenCharacter.healthPoints > 0)
-            return true;
-        else return false;
+        if (attacker.length == 0 && attacker.healthPoints > 0) {
+            return true
+        } else {
+            return false
+        };
     }
 
+    function lose() {
+        if (attacker.healthPoints < 0 && defender.healthPoints > 0) {
+            return true
+        } else {
+            return false
+        }
+    };
+}
 
 
-    // Restart Button
-    $("#restart-button").click(function () {
-        window.location.reload();
-    })
+// Restart Button
+$("#restart-button").click(function () {
+    window.location.reload();
+})
 })
