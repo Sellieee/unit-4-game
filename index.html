@@ -26,35 +26,32 @@
                 <!-- Displays the images of the 4 characters -->
                 <div class="col-sm-12" id="character-image">
                     <h4>Select a character:</h4>
-                    <div class="col-sm-3 img1 float" id="obi" value="Obi">
+                    <div class="col-sm-3 img1 image" id="obi" value="Obi">
                         <p>Obi-Wan Kenobi</p>
                         <img src="assets/images/obi-wan-kenobi.jpg" width="200px">
                         <br>
                     </div>
-                    <div class="col-sm-3 img2 float" id="luke" value="Luke">
+                    <div class="col-sm-3 img2 image" id="luke" value="Luke">
                         <p>Luke Skywalker</p>
                         <img src="assets/images/luke-skywalker.jpg" width="200px">
                         <br>
                     </div>
-                    <div class="col-sm-3 img3 float" id="sidious" value="Sidious">
+                    <div class="col-sm-3 img3 image" id="sidious" value="Sidious">
                         <p>Darth Sidious</p>
                         <img src="assets/images/darth-sidious.jpg" width="200px">
                         <br>
                     </div>
-                    <div class="col-sm-3 img4 float" id="maul" value="Maul">
+                    <div class="col-sm-3 img4 image" id="maul" value="Maul">
                         <p>Darth Maul</p>
                         <img src="assets/images/darth-maul.jpg" width="200px">
                         <br>
                     </div>
                 </div>
-                <!-- Confirms chosen character -->
-                <div class="chosen-character">
-                </div>
             </div>
         </div>
         <!-- Where selected character is displayed -->
-        <div class="chosen-character-appears">
-            <p>Selected character:</p>
+        <div class="chosen-character">
+            <p>Choose your fighter, may the force be with you.</p>
 
         </div>
         <!-- Where enemies appear (other 3 characters) -->
@@ -65,7 +62,9 @@
             <!-- Fight section where 'Attack' button is located -->
             <div class="fight-section">
                 <p>Battlegrounds</p>
+                <div id="selected-enemy">
 
+                </div>
             </div>
             <!-- Create attack button -->
             <div id="attack-button">
@@ -78,6 +77,10 @@
         </div>
         <div class="attack-note">
 
+        </div>
+        <!-- Restart button -->
+        <div id="restart-button">
+            <button>Restart</button>
         </div>
     </div>
     <footer><span>&#169; Selina Van 2019</span></footer>

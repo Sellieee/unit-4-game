@@ -52,52 +52,87 @@ $(document).ready(function () {
     }
 
     // Variables:
-    var character;
+    var character = "";
     var enemy;
     var roundNumber = 1;
     var enemiesKilled = 0;
+    var wins = 0;
+    var chosenCharacter = {};
+    var chosenEnemy = {};
+
+    // Attack button
+    $("#attack-button").click(function () {
+        if ($(".enemies").children().length == 0) {
+            $(".attack-note").html("Please select a character first.")
+        }
+    })
 
     // Selecting character
-    $("#character-image").click(function () {
+    $(".image").click(function () {
         if (character == "") {
             console.log(this);
             $(this).appendTo(".chosen-character");
             character = $(this);
             chosenCharacter = $(character).attr("value");
-        }
-        if (chosenCharacter == characters.Obi.name) {
-            HP = characters.Obi.healthPoints;
-            AP = characters.Obi.attackPower;
-            CAP = characters.Obi.counter;
-            name = characters.Obi.name;
-        } else if (chosenCharacter == characters.Luke) {
-            HP = characters.Luke.healthPoints;
-            AP = characters.Luke.attackPower;
-            CAP = characters.Luke.counter;
-            name = characters.Luke.name;
-        } else if (chosenCharacter == characters.Sidious) {
-            HP = characters.Sidious.healthPoints;
-            AP = characters.Sidious.attackPower;
-            CAP = characters.Sidious.counter;
-            name = characters.Sidious.name;
-        } else if (chosenCharacter == characters.Maul) {
-            HP = characters.Maul.healthPoints;
-            AP = characters.Maul.attackPower;
-            CAP = characters.Maul.counter;
-            name = characters.Maul.name;
-        }
+            var attacker = characters[chosenCharacter];
+            console.log(attacker);
+            HP = attacker.healthPoints;
+            AP = attacker.attackPower;
+            CAP = attacker.counter;
+            name = attacker.name;
 
+            $("#choose-character .image").appendTo(".enemies");
+
+            // Hide other characters when character has been selected
+            $("#choose-character").hide();
+            $(".attack-note").html("Choose your enemy")
+        }
+    })
+    // choose enemy to fight
+    $(".enemies").click(function () {
+        if (character == "") {
+            console.log(this);
+            $(this).appendTo("#selected-enemy");
+            character = $(this);
+            chosenEnemy = $(character).attr("value");
+            var defender = characters[chosenEnemy];
+            console.log(defender);
+            HP = defender.healthPoints;
+            AP = defender.attackPower;
+            CAP = defender.counter;
+            name = defender.name;
+        }
     })
 
-    // Base Attack Power
+
+    // Base attack
     function baseAttack() {
-        baseAttack = attackPower;
+        baseAttack = chosenCharacter.attackPower
+    }
+    // Increasing AP after each attack
+    chosenCharacter.attackPower = function () {
+        this.attackPower += attackPower;
+    }
+    // if character successfully attacks
+    $(".attack-note").html("You attacked " + enemy + "for " + this.attackPower + " points.");
+
+    // Decreasing HP from counter attack
+    chosenCharacter.counter = function () {
+        this.healthPoints -= this.counter;
+        $(".attack-note").append(this.name + "counter attacked you for " + this.counter + " points.");
     }
 
-    // Attack button
-    $(".attack-button").click(function () {
-        if ($(".enemies").children().length == 0) {
-            $(".attack-note").html("Please select a character first.")
-        }
+    // If character has won 
+    function wins() {
+        if (chosenCharacter.length == 0 && chosenCharacter.healthPoints > 0)
+            return true;
+        else return false;
+    }
+
+
+
+    // Restart Button
+    $("#restart-button").click(function () {
+        window.location.reload();
     })
 })
