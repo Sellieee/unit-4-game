@@ -38,9 +38,14 @@ $(document).ready(function () {
     var losses = 0;
     var chosenCharacter = {};
     var chosenEnemy = {};
-    var isdefeated = false;
     var attacker = {};
     var defender = {};
+
+    // Displaying the HP of each character
+    $("#obihp").html(characters.Obi.healthPoints);
+    $("#lukehp").html(characters.Luke.healthPoints);
+    $("#sidioushp").html(characters.Sidious.healthPoints);
+    $("#maulhp").html(characters.Maul.healthPoints);
 
     // Allowing the user to select a character
     $("#choose-character .image").click(function () {
@@ -51,10 +56,10 @@ $(document).ready(function () {
             chosenCharacter = $(character).attr("value");
             var attacker = characters[chosenCharacter];
             console.log(attacker);
-            HP = attacker.healthPoints;
-            AP = attacker.attackPower;
-            CAP = attacker.counter;
-            name = attacker.name;
+            AHP = attacker.healthPoints;
+            AAP = attacker.attackPower;
+            ACAP = attacker.counter;
+            Aname = attacker.name;
 
             $("#choose-character .image").appendTo(".fight-section");
 
@@ -73,10 +78,10 @@ $(document).ready(function () {
                 chosenEnemy = $(enemy).attr("value");
                 var defender = characters[chosenEnemy];
                 console.log(defender);
-                HP = defender.healthPoints;
-                AP = defender.attackPower;
-                CAP = defender.counter;
-                name = defender.name;
+                DHP = defender.healthPoints;
+                DAP = defender.attackPower;
+                DCAP = defender.counter;
+                Dname = defender.name;
                 $(".enemy-text").hide();
             }
         })
@@ -86,15 +91,37 @@ $(document).ready(function () {
             if ($(".chosen-character").children().length == 0) {
                 $(".attack-note").html("Please select a character first.")
             } else {
-                defender.healthPoints = defender.healthPoints - attacker.attackPower;
-                attacker.healthPoints = attacker.healthPoints - defender.counter;
+                DHP = DHP - AAP;
+                AHP = AHP - DCAP;
 
 
-
-                $(".attack-note").html("You attacked " + defender + "for " + attacker.attackPower + " damage.");
-                $(".attack-note").append(this.name + "counter attacked you for " + defender.counter + " damage.");
+                $(".attack-note").html("You attacked " + chosenEnemy + " for " + AAP + " damage. ");
+                $(".attack-note").append(chosenEnemy + " counter attacked you for " + DCAP + " damage.");
             };
         })
+
+        // // If character has won 
+        // var wins = 0;
+        // var losses = 0;
+
+        // var wins {
+        //     if (chosenCharacter.length == 0 && chosenCharacter.healthPoints > 0) {
+        //         $(".attack-note").html("You win! The force is strong with you!");
+        //         wins++;
+        //     } else {
+        //         return false
+        //     };
+        // }
+
+        // // If character has lost
+        // var losses {
+        //     if (attacker.healthPoints < 0 && defender.healthPoints > 0) {
+        //         $(".attack-note").html("You lose! The force is weak within you, try again!");
+        //         losses++;
+        //     } else {
+        //         return false
+        //     }
+        // };
     })
 
 

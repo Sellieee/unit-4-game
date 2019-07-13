@@ -21,7 +21,11 @@ p {
     font-size: 24px;
 }
 
-;
+h5 {
+    font-family: 'Amatic SC', cursive;
+    color: orange;
+    font-size: 24px;
+}
 
 button {
     background-color: yellow;
@@ -57,4 +61,10 @@ footer {
 
 .image {
     padding-bottom: 30px;
+}
+
+.attack-note {
+    font-family: 'Amatic SC', cursive;
+    color: fuchsia;
+    font-size: 24px;
 }
