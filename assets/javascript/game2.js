@@ -77,6 +77,7 @@ $(document).ready(function () {
                 AP = defender.attackPower;
                 CAP = defender.counter;
                 name = defender.name;
+                $(".enemy-text").hide();
             }
         })
 
