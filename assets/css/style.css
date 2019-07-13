@@ -1,0 +1,32 @@
+body {
+    background: url(https://images.alphacoders.com/772/thumb-1920-772579.jpg);
+}
+
+h1 {
+    font-family: 'Sigmar One', cursive;
+    font-size: 48px;
+    color: yellow;
+}
+
+h4 {
+    font-family: 'Sigmar One', cursive;
+    font-size: 24px;
+    color: yellow;
+}
+
+p {
+    font-family: 'Amatic SC', cursive;
+    color: yellow;
+    font-size: 24px;
+}
+
+button {
+    background-color: yellow;
+    padding: 10px 20px 10px 20px;
+}
+
+footer {
+    font-family: 'Sigmar One', cursive;
+    font-size: 30px;
+    color: yellow;
+}

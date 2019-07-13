@@ -53,7 +53,7 @@ $(document).ready(function () {
 
     // Variables:
     var character = "";
-    var enemy;
+    var enemy = "";
     var roundNumber = 1;
     var enemiesKilled = 0;
     var wins = 0;
@@ -83,11 +83,11 @@ $(document).ready(function () {
     })
     // choose enemy to fight
     $(".enemies").children(".image").click(function () {
-        if (character == "") {
+        if (enemy == "") {
             console.log(this);
             $(this).appendTo(".defender-area");
-            character = $(this);
-            chosenEnemy = $(character).attr("value");
+            enemy = $(this);
+            chosenEnemy = $(enemy).attr("value");
             var defender = characters[chosenEnemy];
             console.log(defender);
             HP = defender.healthPoints;
@@ -124,11 +124,9 @@ $(document).ready(function () {
             return false
         }
     };
-}
 
-
-// Restart Button
-$("#restart-button").click(function () {
-    window.location.reload();
-})
+    // Restart Button
+    $("#restart-button").click(function () {
+        window.location.reload();
+    });
 })
