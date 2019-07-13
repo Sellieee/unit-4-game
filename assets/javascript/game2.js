@@ -68,6 +68,7 @@ $(document).ready(function () {
             $(".character-selection").hide();
 
 
+
             // Allowing the user to select an enemy
         }
         $(".enemies .image").click(function () {
@@ -86,6 +87,7 @@ $(document).ready(function () {
             }
         })
 
+
         // Attack button
         $("#attack-button").click(function () {
             if ($(".chosen-character").children().length == 0) {
@@ -94,12 +96,28 @@ $(document).ready(function () {
                 DHP = DHP - AAP;
                 AHP = AHP - DCAP;
 
-
                 $(".attack-note").html("You attacked " + chosenEnemy + " for " + AAP + " damage. ");
                 $(".attack-note").append(chosenEnemy + " counter attacked you for " + DCAP + " damage.");
-            };
-        })
 
+                // Playing sound on click - issue: plays on every click after attack button is pressed
+                const sound = new Audio();
+                addEventListener('click', playSound);
+
+                function playSound() {
+                    sound.src = "./assets/star-wars.mp3";
+                    sound.play();
+                }
+
+                // Need to modify the character's health points as they are attacked/counter attacked
+                // if (chosenCharacter == Obi) {
+
+                // }
+            };
+
+            // Increasing the base attack of the selected character
+            for (var i = 0; i < characters.healthPoints; i++)
+                AAP += AAP;
+        })
         // // If character has won 
         // var wins = 0;
         // var losses = 0;
@@ -122,8 +140,8 @@ $(document).ready(function () {
         //         return false
         //     }
         // };
-    })
 
+    })
 
     // Restart Button
     $("#restart-button").click(function () {
