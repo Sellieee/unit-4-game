@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+    <script type="text/javascript" src="./assets/javascript/game2.js"></script>
 </head>
 
 <body>
@@ -21,12 +21,13 @@
     </div>
     <!-- Where the entire game is contained -->
     <div class="game-area container">
-        <div class="attack-note">
-
+        <div class="row">
+            <div class="attack-note">
+            </div>
         </div>
         <!-- Displays 4 characters available to be selected -->
         <!-- Displays the images of the 4 characters -->
-        <h4>Select a character:</h4>
+        <h4 class="character-selection">Select a character: May the force be with you</h4>
         <div class="row" id="choose-character">
             <div class="col-sm-3 img1 image" id="obi" value="Obi">
                 <p>Obi-Wan Kenobi</p>
@@ -51,7 +52,7 @@
         </div>
         <!-- Where selected character is displayed -->
         <div class="chosen-character">
-            <p>Choose your fighter, may the force be with you.</p>
+            <h3 class="attacker-font">Attacker:</h3>
 
         </div>
         <!-- Where enemies appear (other 3 characters) -->
@@ -63,7 +64,6 @@
             </div>
             <!-- Fight section where 'Attack' button is located -->
             <div class="fight-section">
-                <p>Battlegrounds</p>
             </div>
             <!-- Create attack button -->
             <div id="attack-button">
@@ -71,7 +71,7 @@
             </div>
             <!-- Defender area where selected enemy is displayed -->
             <div class="defender-area">
-
+                <h3 class="defender-font">Defender:</h3>
             </div>
         </div>
 

@@ -10,15 +10,17 @@ h1 {
 
 h4 {
     font-family: 'Sigmar One', cursive;
-    font-size: 24px;
-    color: yellow;
+    color: blue;
 }
+
 
 p {
     font-family: 'Amatic SC', cursive;
-    color: yellow;
+    color: orange;
     font-size: 24px;
 }
+
+;
 
 button {
     background-color: yellow;
@@ -29,4 +31,15 @@ footer {
     font-family: 'Sigmar One', cursive;
     font-size: 30px;
     color: yellow;
+}
+
+.attacker-font {
+    color: greenyellow;
+    font-family: 'Sigmar One', cursive;
+
+}
+
+.defender-font {
+    color: red;
+    font-family: 'Sigmar One', cursive;
 }
