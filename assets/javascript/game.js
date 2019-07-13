@@ -59,6 +59,7 @@ $(document).ready(function () {
     var wins = 0;
     var chosenCharacter = {};
     var chosenEnemy = {};
+    var isEnemySelected = false;
 
     // Selecting character
     $(".image").click(function () {
@@ -83,6 +84,7 @@ $(document).ready(function () {
     })
     // choose enemy to fight
     $(".enemies").children(".image").click(function () {
+        console.log('wwwww')
         if (enemy == "") {
             console.log(this);
             $(this).appendTo(".defender-area");
@@ -102,7 +104,12 @@ $(document).ready(function () {
         if ($(".enemies").children().length == 0) {
             $(".attack-note").html("Please select a character first.")
         } else {
-            defender.healthPoints -= attacker.attackPower && attacker.healthPoints -= defender.counter;
+            var defenderHP = defender.healthPoints - attacker.attackPower;
+            var attackerHP = attacker.healthPoints - defender.counter;
+            defender.healthPoints = defenderHP;
+            attacker.healthPoints = attackerHP
+
+
             $(".attack-note").html("You attacked " + defender + "for " + attacker.attackPower + " damage.");
             $(".attack-note").append(this.name + "counter attacked you for " + defender.counter + " damage.");
         };
