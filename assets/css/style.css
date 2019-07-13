@@ -1,5 +1,6 @@
 body {
     background: url(https://images.alphacoders.com/772/thumb-1920-772579.jpg);
+    padding-bottom: 30px;
 }
 
 h1 {
@@ -36,10 +37,20 @@ footer {
 .attacker-font {
     color: greenyellow;
     font-family: 'Sigmar One', cursive;
-
+    font-size: 28px;
 }
 
 .defender-font {
     color: red;
     font-family: 'Sigmar One', cursive;
+    font-size: 28px;
+}
+
+.game-area {
+    padding-bottom: 20px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
 }

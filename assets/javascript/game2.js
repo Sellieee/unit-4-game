@@ -61,34 +61,41 @@ $(document).ready(function () {
             // Hide other characters when character has been selected
             $("#choose-character").hide();
             $(".character-selection").hide();
-            $(".attack-note").html("Choose your enemy")
+
 
             // Allowing the user to select an enemy
         }
         $(".enemies .image").click(function () {
             if (enemy == "") {
                 console.log(this);
-                $(this).appendTo(".defender-area")
+                $(this).appendTo(".defender-area");
+                enemy = $(this);
+                chosenEnemy = $(enemy).attr("value");
+                var defender = characters[chosenEnemy];
+                console.log(defender);
+                HP = defender.healthPoints;
+                AP = defender.attackPower;
+                CAP = defender.counter;
+                name = defender.name;
             }
         })
 
+        // Attack button
+        $("#attack-button").click(function () {
+            if ($(".chosen-character").children().length == 0) {
+                $(".attack-note").html("Please select a character first.")
+            } else {
+                defender.healthPoints = defender.healthPoints - attacker.attackPower;
+                attacker.healthPoints = attacker.healthPoints - defender.counter;
+
+
+
+                $(".attack-note").html("You attacked " + defender + "for " + attacker.attackPower + " damage.");
+                $(".attack-note").append(this.name + "counter attacked you for " + defender.counter + " damage.");
+            };
+        })
     })
 
-    // Attack button
-    $("#attack-button").click(function () {
-        if ($(".chosen-character").children().length == 0) {
-            $(".attack-note").html("Please select a character first.")
-        } else {
-            var defenderHP = defender.healthPoints - attacker.attackPower;
-            var attackerHP = attacker.healthPoints - defender.counter;
-            defender.healthPoints = defenderHP;
-            attacker.healthPoints = attackerHP
-
-
-            $(".attack-note").html("You attacked " + defender + "for " + attacker.attackPower + " damage.");
-            $(".attack-note").append(this.name + "counter attacked you for " + defender.counter + " damage.");
-        };
-    })
 
     // Restart Button
     $("#restart-button").click(function () {
